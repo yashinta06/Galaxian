@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxian - Classic Arcade</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Tombol Restart */
+        
+        #btn-restart {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 30px;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            background: #00ff66;
+            color: #000;
+            border: 2px solid #00ff66;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 0 15px #00ff66;
+            display: none;
+        }
+        
+        #btn-restart:hover {
+            background: #00cc55;
+            box-shadow: 0 0 20px #00ff66;
+        }
+        
+        #btn-restart:not(.hidden) {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CONTAINER UTAMA -->
+    <div id="game-wrapper">
+
+        <!-- AREA GAME -->
+        <div id="game-container">
+
+            <!-- 1. HUD -->
+            <div id="hud">
+                <span id="score-display">SCORE: 0000</span>
+                <span id="wave-display">WAVE: 1</span>
+                <span id="hi-display">HI: 0000</span>
+                <span id="lives-display">🤍 3</span>
+            </div>
+
+            <!-- 2. CANVAS -->
+            <canvas id="gameCanvas" width="500" height="600" tabindex="0">
+            </canvas>
+
+            <!-- 3. OVERLAY -->
+            <div id="overlay">
+                <h1>GALAXIAN</h1>
+                <h2>CLASSIC ARCADE</h2>
+
+                <p>
+                    Tembak semua alien sebelum mereka mencapai pesawatmu!
+                </p>
+
+                <button id="start-btn">
+                    START GAME
+                </button>
+            </div>
+
+            <!-- TOMBOL RESTART (ditambahkan) -->
+            <button id="btn-restart" class="hidden">MAIN LAGI</button>
+
+            <!-- 4. TOUCH CONTROLS -->
+            <div id="touch-controls">
+
+                <div class="dpad">
+                    <button class="ctrl-btn" id="btn-left">◀</button>
+                    <button class="ctrl-btn" id="btn-right">▶</button>
+                </div>
+
+                <button class="ctrl-btn fire-btn" id="btn-fire">
+                    FIRE
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="game.js"></script>
+
+</body>
+
+</html>
